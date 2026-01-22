@@ -53,7 +53,16 @@ function Home() {
         </Box>
 
         {/* Layout: sidebar filters on the left, movie grid on the right */}
-        <Box style={{ display: "flex", gap: "2rem", marginTop: "2rem" }}>
+        {/* <Box style={{ display: "flex", gap: "2rem", marginTop: "2rem" }}> */}
+        <Box
+          style={{
+            display: "flex",
+            gap: "2rem",
+            marginTop: "2rem",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {/* Sidebar with filter options */}
           <SidebarFilters onFilterChange={handleFilterChange} />
 

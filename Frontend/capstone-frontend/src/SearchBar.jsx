@@ -44,7 +44,14 @@ function SearchBar(props) {
       </Box>
 
       {/* Right side: search input & button */}
-      <Group gap={0}>
+      {/* <Group gap={0}> */}
+      <Group
+        gap={0}
+        style={{
+          flexDirection: "row",
+        }}
+        className="search-group"
+      >
         <TextInput
           placeholder="Search for a movie title..."
           radius={0}

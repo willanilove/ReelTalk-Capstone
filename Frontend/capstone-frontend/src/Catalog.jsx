@@ -215,7 +215,13 @@ function Catalog() {
                     borderRadius: "8px",
                   }}
                 >
-                  <Image src={movie.poster} alt={movie.title} width={150} radius="md" />
+                  {/* <Image src={movie.poster} alt={movie.title} width={150} radius="md" /> */}
+                  <Image
+                    src={movie.poster}
+                    alt={movie.title}
+                    radius="md"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
 
                   <Text fw={600} mt="sm">
                     {movie.title}

@@ -20,13 +20,10 @@ function App() {
       <main
         style={{
           maxWidth: "1200px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: "20px",
-          marginBottom: "20px",
-          paddingLeft: "20px",
-          paddingRight: "20px",
+          margin: "20px auto",
+          padding: "0 20px",
           minHeight: "80vh",
+          width: "100%",
         }}
       >
         <Routes>
