@@ -1,0 +1,39 @@
+/* Reset box sizing & remove default margin/padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* background-color: #a9a9a9; */
+  /* background-color: #dde0e3; */
+  background-color: #354760;
+  min-height: 100vh;
+}
+
+/* Change background for home page only */
+/* body.home-page {
+  background-color: #a9a9a9;
+} */
+
+/* Footer styling */
+.footer {
+  padding: 40px 20px; /* top-bottom & left-right */
+  background-color: white;
+  border-top: 1px solid #c5c8cc;
+}
+
+/* Inner flex container for footer content */
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Footer links styling */
+.links {
+  display: flex;
+  gap: 15px; /* space between each link */
+}

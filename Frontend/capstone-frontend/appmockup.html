@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Movie Review App | Home</title>
+        <style>
+            :root {
+                --primary-color: #5d5fef; /* A cool, modern purple/blue */
+                --text-color: #333;
+                --background-color: #f4f7f9;
+                --card-background: #ffffff;
+                --star-color: gold;
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, Helvetica, Arial, sans-serif;
+                background-color: var(--background-color);
+                margin: 0;
+                padding: 0;
+                color: var(--text-color);
+            }
+
+            /* --- 1. Navigation Bar --- */
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 50px;
+                background-color: var(--card-background);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+            .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+            .nav-links a {
+                margin-left: 25px;
+                text-decoration: none;
+                color: var(--text-color);
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+            .auth-buttons button {
+                padding: 8px 15px;
+                margin-left: 10px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 600;
+            }
+            .btn-signup {
+                background-color: var(--primary-color);
+                color: white;
+            }
+            .btn-login {
+                background-color: transparent;
+                color: var(--primary-color);
+                border: 1px solid var(--primary-color) !important;
+            }
+
+            /* --- 2. Main Layout --- */
+            .container {
+                max-width: 1200px;
+                margin: 30px auto;
+                padding: 0 20px;
+            }
+
+            /* --- 3. Header/Search Bar --- */
+            .header-section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                background-color: var(--card-background);
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            }
+            .greeting h2 {
+                margin: 0;
+                font-size: 1.8rem;
+                color: var(--primary-color);
+            }
+            .search-bar {
+                display: flex;
+            }
+            .search-bar input {
+                padding: 10px 15px;
+                border: 1px solid #ccc;
+                border-radius: 6px 0 0 6px;
+                width: 300px;
+                font-size: 1rem;
+            }
+            .search-bar button {
+                padding: 10px 20px;
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 0 6px 6px 0;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+
+            /* --- 4. Movie Grid --- */
+            .movie-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+            }
+
+            /* --- 5. Movie Card --- */
+            .movie-card {
+                background-color: var(--card-background);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .movie-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            }
+            .movie-card img {
+                width: 100%;
+                height: 350px; /* Uniform height for posters */
+                object-fit: cover;
+                display: block;
+            }
+            .card-content {
+                padding: 15px;
+            }
+            .card-content h3 {
+                margin-top: 0;
+                margin-bottom: 5px;
+                font-size: 1.2rem;
+                height: 40px; /* Keep title space consistent */
+                overflow: hidden;
+            }
+            .rating {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .rating span {
+                font-weight: bold;
+                margin-left: 8px;
+                font-size: 1.1rem;
+                color: var(--primary-color);
+            }
+            .star {
+                color: var(--star-color);
+                font-size: 1.2rem;
+            }
+            .card-actions {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 15px;
+            }
+            .btn-view,
+            .btn-review {
+                padding: 8px 12px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 0.9rem;
+                transition: background-color 0.2s;
+            }
+            .btn-view {
+                background-color: var(--primary-color);
+                color: white;
+            }
+            .btn-view:hover {
+                background-color: #4b4cdb;
+            }
+            .btn-review {
+                background-color: #eee;
+                color: var(--text-color);
+                border: 1px solid #ddd;
+            }
+            .btn-review:hover {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="#" class="logo">🎥 Movie App</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Add Movie</a>
+                <a href="#">My Reviews</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn-login">Log In</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <header class="header-section">
+                <div class="greeting">
+                    <h2>Welcome back!</h2>
+                    <p>
+                        Browse the latest movies, read reviews, and share your
+                        ratings.
+                    </p>
+                </div>
+                <div class="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search for a movie title..."
+                    />
+                    <button>Search</button>
+                </div>
+            </header>
+
+            <h2>Popular Movies</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BM2MyNjYwYTItMjFlMy00OTI0LTgyYzctMzZjYWI1YTcwZTg0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UY281_CR1,0,190,281_.jpg"
+                        alt="The Godfather Poster"
+                    />
+                    <div class="card-content">
+                        <h3>The Godfather (1972)</h3>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span>4.8</span>
+                        </div>
+                        <p>Crime/Drama · 175 min</p>
+                        <div class="card-actions">
+                            <button class="btn-view">View Reviews</button>
+                            <button class="btn-review">Add Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+                        alt="Inception Poster"
+                    />
+                    <div class="card-content">
+                        <h3>Inception (2010)</h3>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span>4.9</span>
+                        </div>
+                        <p>Sci-Fi/Action · 148 min</p>
+                        <div class="card-actions">
+                            <button class="btn-view">View Reviews</button>
+                            <button class="btn-review">Add Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNGNhM2NlY2MtMTcwYi00YjczLTk5MmQtOTY4NWU2NTgzMWE3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UY281_CR2,0,190,281_.jpg"
+                        alt="Pulp Fiction Poster"
+                    />
+                    <div class="card-content">
+                        <h3>Pulp Fiction (1994)</h3>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span>4.7</span>
+                        </div>
+                        <p>Crime/Thriller · 154 min</p>
+                        <div class="card-actions">
+                            <button class="btn-view">View Reviews</button>
+                            <button class="btn-review">Add Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMTMxNTY3NTgyOF5BMl5BanBnXkFtZTcwMjg2NDk0OQ@@._V1_QL75_UY281_CR0,0,190,281_.jpg"
+                        alt="The Dark Knight Poster"
+                    />
+                    <div class="card-content">
+                        <h3>The Dark Knight (2008)</h3>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span>4.9</span>
+                        </div>
+                        <p>Action/Crime · 152 min</p>
+                        <div class="card-actions">
+                            <button class="btn-view">View Reviews</button>
+                            <button class="btn-review">Add Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
