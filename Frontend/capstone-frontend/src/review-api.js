@@ -1,7 +1,7 @@
 // Axios functions for creating, updating & deleting reviews in the backend
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:5001";
+const BASE_URL = "https://reeltalk-capstone.onrender.com";
 
 // Create a new review: user_id, movie_id, comment, rating
 export async function createReview(reviewData) {
