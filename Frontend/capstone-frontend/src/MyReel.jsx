@@ -24,6 +24,9 @@ function MyReel() {
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null;
 
+  // Clear cached reviews when a different user logs in
+  localStorage.removeItem("cachedReviews");
+
   // If no user is logged in, show this message
   if (!user) {
     return (
@@ -35,12 +38,11 @@ function MyReel() {
       </div>
     );
   }
-
   // Fetch the user's reviews when the component loads
   useEffect(() => {
     if (!user) return;
 
-    const url = `http://127.0.0.1:5001/users/${user.id}/reviews`;
+    const url = `https://reeltalk-capstone.onrender.com/users/${user.id}/reviews`;
 
     // Check if cached reviews exist (used only for faster loading)
     const cached = localStorage.getItem("cachedReviews");
@@ -78,7 +80,7 @@ function MyReel() {
             } catch {
               return { ...review, poster_url: null };
             }
-          })
+          }),
         );
 
         setReviews(reviewsWithPosters);
@@ -114,7 +116,9 @@ function MyReel() {
 
       setReviews((prev) => {
         const updatedReviews = prev.map((review) =>
-          review.id === editingId ? { ...review, comment: updatedReview.comment, rating: updatedReview.rating } : review
+          review.id === editingId
+            ? { ...review, comment: updatedReview.comment, rating: updatedReview.rating }
+            : review,
         );
 
         // Update cache to match state
