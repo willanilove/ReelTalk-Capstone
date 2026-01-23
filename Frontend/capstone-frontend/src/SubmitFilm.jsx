@@ -75,7 +75,7 @@ function SubmitFilm() {
       };
 
       // Send the POST request to the backend
-      const response = await fetch("http://127.0.0.1:5001/movies", {
+      const response = await fetch("https://reeltalk-capstone.onrender.com/movies", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +95,7 @@ function SubmitFilm() {
 
       // Updated success message
       setMessage(
-        `The movie "${data.title}" has been added successfully. Please allow 1–3 business days for review. We will notify you by email once it's approved.`
+        `The movie "${data.title}" has been added successfully. Please allow 1–3 business days for review. We will notify you by email once it's approved.`,
       );
 
       // Hide the form
