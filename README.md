@@ -3,6 +3,8 @@ A full-stack movie review web application where users can discover films, write 
 
 This project was built as my final capstone for the **Coding Temple Software Engineering program**. The goal of this project was to design and develop a functional full-stack application that demonstrates CRUD operations, user authentication, and third-party API integration.
 
+Base URL: https://reeltalk-capstone.netlify.app/
+
 ---
 
 ## Features
